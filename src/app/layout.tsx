@@ -11,25 +11,16 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
-  description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+  title: "Marcellinus Aditya | Portfolio",
+  description: "Welcome to my portfolio! I'm Marcellinus Aditya, a passionate software engineer with expertise in web development. Explore my projects and skills to see how I can help bring your ideas to life.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <script
-          defer
-          data-site="YOUR_DOMAIN_HERE"
-          src="https://api.nepcha.com/js/nepcha-analytics.js"
-        ></script>
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <script defer data-site="marcellinus.vitroweb.site" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+        <link rel="shortcut icon" href="/favicon-32x32.png" type="image/png" />
       </head>
       <body className={roboto.className}>
         <Layout>
