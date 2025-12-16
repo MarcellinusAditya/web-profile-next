@@ -23,6 +23,18 @@ const PROJECTS = [
     desc: "Soccer field rental website with specific locations and times. Built with a microservice backend using Golang and integrated on the frontend using React. It has also been integrated with the Midtrans payment gateway and deployed on GCS with Jenkins.",
     href: "https://fe.vitroweb.site/",
   },
+  {
+    img: `${getImagePrefix()}image/portal.PNG`,
+    title: "Item Portal Web ( DB Klik Intern )",
+    desc: "Portal website that manages information related to sales products, distributors, and ordering products from distributors. I participated in creating purchase list features, receive items, and several distribution features on e-commerce websites. (Laravel)",
+    href: "",
+  },
+  {
+    img: `${getImagePrefix()}image/omnichannel.PNG`,
+    title: "Omnichannel Web ( DB Klik Intern )",
+    desc: "An omnichannel website that manages many staff needs in carrying out work such as order management, stock management, goods receipt, and others. I participated in creating the receive item and serial number features. (Laravel)",
+    href: "",
+  },
 ];
 
 export function Projects() {

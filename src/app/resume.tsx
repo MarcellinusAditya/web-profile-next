@@ -28,7 +28,7 @@ export function Resume() {
             My Resume
           </Typography>
           <Typography className="mb-4 mt-3 w-9/12 font-normal !text-gray-500">A developer who has a passion for continuing to develop, especially in the fields of Fullstack and Backend Development.</Typography>
-          <a href="/resume-1.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/CV-MarcellinusAditya-V2.pdf" target="_blank" rel="noopener noreferrer">
             <Button variant="text" color="gray" className="flex items-center gap-2">
               view more
               <ArrowRightIcon strokeWidth={3} className="h-3.5 w-3.5 text-gray-900" />
