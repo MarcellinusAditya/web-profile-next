@@ -18,6 +18,12 @@ const PROJECTS = [
     href: "https://tickox.vitroweb.my.id/",
   },
   {
+    img: `${getImagePrefix()}image/deteksi-diabetes.PNG`,
+    title: "DEteksi Diabetes",
+    desc: "Diabetes detection website created with Python backend using the KNN method which is optimized with a Genetic Algorithm. This project is a final exam project with the conclusion that it has succeeded in increasing accuracy by 5-8%.",
+    href: "https://deteksi-diabetes.vitroweb.my.id/",
+  },
+  {
     img: `${getImagePrefix()}image/minisoccer.PNG`,
     title: "Soccer Field Rent (Microservice API Integrated)",
     desc: "Soccer field rental website with specific locations and times. Built with a microservice backend using Golang and integrated on the frontend using React. It has also been integrated with the Midtrans payment gateway and deployed on GCS with Jenkins.",
