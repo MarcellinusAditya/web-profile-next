@@ -19,7 +19,7 @@ const PROJECTS = [
   },
   {
     img: `${getImagePrefix()}image/deteksi-diabetes.PNG`,
-    title: "DEteksi Diabetes",
+    title: "Diabetes Detection",
     desc: "Diabetes detection website created with Python backend using the KNN method which is optimized with a Genetic Algorithm. This project is a final exam project with the conclusion that it has succeeded in increasing accuracy by 5-8%.",
     href: "https://deteksi-diabetes.vitroweb.my.id/",
   },
@@ -33,7 +33,7 @@ const PROJECTS = [
     img: `${getImagePrefix()}image/portal.PNG`,
     title: "Item Portal Web ( DB Klik Intern )",
     desc: "Portal website that manages information related to sales products, distributors, and ordering products from distributors. I participated in creating purchase list features, receive items, and several distribution features on e-commerce websites. (Laravel)",
-    href: "",
+    href: "/Porto-Portal_DB_Klik.pdf",
   },
   {
     img: `${getImagePrefix()}image/omnichannel.PNG`,
