@@ -6,41 +6,48 @@ import { getImagePrefix } from "../../utils/utils";
 
 const PROJECTS = [
   {
-    img: `${getImagePrefix()}image/prima.PNG`,
-    title: "Prima Apotek",
-    desc: "A simple e-commerce website that sells medicines. Created with Laravel technology and integrated with Midtrans payment gateway.",
-    href: "http://primaapotek.vitroweb.my.id/",
-  },
-  {
-    img: `${getImagePrefix()}image/tickox.PNG`,
-    title: "Tickox",
-    desc: "Tourist ticket sales website using a mobile friendly approach. Built with Laravel and Filament as content management.",
-    href: "https://tickox.vitroweb.my.id/",
-  },
-  {
-    img: `${getImagePrefix()}image/deteksi-diabetes.PNG`,
-    title: "Diabetes Detection",
-    desc: "Diabetes detection website created with Python backend using the KNN method which is optimized with a Genetic Algorithm. This project is a final exam project with the conclusion that it has succeeded in increasing accuracy by 5-8%.",
-    href: "https://deteksi-diabetes.vitroweb.my.id/",
-  },
-  {
-    img: `${getImagePrefix()}image/minisoccer.PNG`,
-    title: "Soccer Field Rent (Microservice API Integrated)",
-    desc: "Soccer field rental website with specific locations and times. Built with a microservice backend using Golang and integrated on the frontend using React. It has also been integrated with the Midtrans payment gateway and deployed on GCS with Jenkins.",
-    href: "https://fe.vitroweb.site/",
-  },
-  {
     img: `${getImagePrefix()}image/portal.PNG`,
-    title: "Item Portal Web ( DB Klik Intern )",
+    title: "Item Portal Web (DB Klik Intern 2025-2026)",
     desc: "Portal website that manages information related to sales products, distributors, and ordering products from distributors. I participated in creating purchase list features, receive items, and several distribution features on e-commerce websites. (Laravel)",
     href: "/Porto-Portal_DB_Klik.pdf",
   },
   {
     img: `${getImagePrefix()}image/omnichannel.PNG`,
-    title: "Omnichannel Web ( DB Klik Intern )",
+    title: "Omnichannel Web (DB Klik Intern 2025-2026)",
     desc: "An omnichannel website that manages many staff needs in carrying out work such as order management, stock management, goods receipt, and others. I participated in creating the receive item and serial number features. (Laravel)",
     href: "",
   },
+  {
+    img: `${getImagePrefix()}image/vitrostorage.PNG`,
+    title: "Storage App (2026)",
+    desc: "Aplikasi web storage yang dibuat dengan backend Laravel dan frontend React. Dengan fitur-fitur seperti CRUD product, warehouse, merchant, user with permissions, and transaction.",
+    href: "https://vitrostorage.vitroweb.my.id/",
+  },
+  {
+    img: `${getImagePrefix()}image/tickox.PNG`,
+    title: "Tickox (2025)",
+    desc: "Tourist ticket sales website using a mobile friendly approach. Built with Laravel and Filament as content management.",
+    href: "https://tickox.vitroweb.my.id/",
+  },
+  {
+    img: `${getImagePrefix()}image/deteksi-diabetes.PNG`,
+    title: "Diabetes Detection (2025)",
+    desc: "Diabetes detection website created with Python backend using the KNN method which is optimized with a Genetic Algorithm. This project is a final exam project with the conclusion that it has succeeded in increasing accuracy by 5-8%.",
+    href: "https://deteksi-diabetes.vitroweb.my.id/",
+  },
+  {
+    img: `${getImagePrefix()}image/minisoccer.PNG`,
+    title: "Soccer Field Rent - Microservice API Integrated (2025)",
+    desc: "Soccer field rental website with specific locations and times. Built with a microservice backend using Golang and integrated on the frontend using React. It has also been integrated with the Midtrans payment gateway and deployed on GCS with Jenkins.",
+    href: "https://fe.vitroweb.site/",
+  },
+  {
+    img: `${getImagePrefix()}image/prima.PNG`,
+    title: "Prima Apotek (2023)",
+    desc: "A simple e-commerce website that sells medicines. Created with Laravel technology and integrated with Midtrans payment gateway.",
+    href: "http://primaapotek.vitroweb.my.id/",
+  },
+  
 ];
 
 export function Projects() {
