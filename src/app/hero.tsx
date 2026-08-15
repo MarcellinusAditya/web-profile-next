@@ -1,34 +1,77 @@
 "use client";
 
-import Image from "next/image";
-import { Input, Button, Typography } from "@material-tailwind/react";
-import { getImagePrefix } from "../../utils/utils";
+const TERMINAL_LINES = [
+  { prompt: "$", text: "whoami", out: "marcellinus.aditya — software engineer" },
+  { prompt: "$", text: "ls ~/stack", out: "laravel  go  react  next.js  docker  mysql" },
+  { prompt: "$", text: "cat ~/status.txt", out: "open to new opportunities" },
+];
 
-function Hero() {
+const STACK_HIGHLIGHTS = ["Laravel", "PHP", "Go", "React", "Next.js", "MySQL", "Docker"];
+
+export default function Hero() {
   return (
-    <header className="bg-white p-8" id="about">
-      <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
-        <div className="row-start-2 lg:row-auto">
-          <Typography variant="h1" color="blue-gray" className="mb-4 lg:text-5xl !leading-tight text-3xl">
-            Marcellinus <br /> Aditya
-          </Typography>
-          <Typography variant="lead" className="mb-4 !text-gray-500 md:pr-16 xl:pr-28">
-            I&apos;m a passionate web developer from Indonesia. Fullstack and Backend are my main focus at the moment. I am ready to dedicate myself to continuing to develop in this field.
-          </Typography>
-          <div className="grid">
-            <div className="mb-2 flex w-full flex-col gap-4 md:w-10/12 md:flex-row">
-              {/* @ts-ignore */}
+    <section id="home" className="relative overflow-hidden border-b border-line bg-surface">
+      <div className="container-page grid gap-16 py-24 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-36">
+        <div>
+          <p className="eyebrow mb-6">software engineer / full-stack developer</p>
+          <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Building reliable web applications with modern technologies.
+          </h1>
+          <p className="body-copy mt-6 max-w-xl">
+            I&apos;m Marcellinus Aditya, a software engineer from Indonesia focused on
+            full-stack and backend development. I design and build systems that solve
+            real business problems — from e-commerce and inventory portals to
+            microservices and data-driven applications.
+          </p>
 
-              <Button color="gray" className="w-full px-4 md:w-[12rem]" href="#contacts">
-                Contact Me
-              </Button>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a href="#projects" className="btn-primary">
+              View Projects
+            </a>
+            <a href="#contacts" className="btn-secondary">
+              Contact Me
+            </a>
+          </div>
+
+          <div className="mt-14">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint">
+              frequently working with
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {STACK_HIGHLIGHTS.map((tech) => (
+                <span key={tech} className="tech-tag">
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         </div>
-        <Image width={810} height={810} alt="team work" src={`${getImagePrefix()}image/profile-photo.jpg`} className="h-[36rem] w-full rounded-xl object-cover" />
+
+        <div className="relative">
+          <div className="card mx-auto w-full max-w-md overflow-hidden shadow-sm lg:ml-auto">
+            <div className="flex items-center gap-2 border-b border-line bg-surface-subtle px-4 py-3">
+              <span className="h-3 w-3 rounded-full bg-red-400" />
+              <span className="h-3 w-3 rounded-full bg-amber-400" />
+              <span className="h-3 w-3 rounded-full bg-[#34d399]" />
+              <span className="ml-2 font-mono text-xs text-ink-faint">marcellinus@dev: ~</span>
+            </div>
+            <div className="space-y-4 bg-[#0f172a] p-5 font-mono text-sm text-[#cbd5e1]">
+              {TERMINAL_LINES.map((line, idx) => (
+                <div key={idx}>
+                  {/* @ts-ignore */}
+                  <p className="text-[#94a3b8]">
+                    <span className="text-[#34d399]">{line.prompt}</span> <span className="text-[#f1f5f9]">{line.text}</span>
+                  </p>
+                  <p className="text-[#cbd5e1]">{line.out}</p>
+                </div>
+              ))}
+              <p className="animate-pulse text-[#94a3b8]">
+                <span className="text-[#34d399]">$</span> <span className="inline-block h-4 w-2 bg-[#cbd5e1] align-middle" />
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
   );
 }
-
-export default Hero;

@@ -1,58 +1,71 @@
 "use client";
 
-import { Typography, Card, CardBody, Radio, Input, Textarea, Button, IconButton } from "@material-tailwind/react";
-import { ChatBubbleOvalLeftIcon, CodeBracketIcon, EnvelopeIcon, PaperClipIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
+const CONTACT_LINKS = [
+  {
+    label: "Email",
+    value: "marcellinusaditya.official@gmail.com",
+    href: "mailto:marcellinusaditya.official@gmail.com",
+  },
+  {
+    label: "WhatsApp",
+    value: "0896-9242-5060",
+    href: "https://wa.me/6289692425060",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/MarcellinusAditya",
+    href: "https://github.com/MarcellinusAditya",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/marcellinus-aditya",
+    href: "https://www.linkedin.com/in/marcellinus-aditya",
+  },
+];
 
 export function ContactForm() {
   return (
-    <section className="px-8 py-16" id="contacts">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography variant="h1" color="blue-gray" className="mb-4">
-          Contact Us
-        </Typography>
-        <Typography variant="lead" className="mx-auto w-full lg:w-5/12 !text-gray-500">
-          Have something you want to ask? Dont hesitate to contact the contact below
-        </Typography>
-      </div>
-      <div>
-        <Card shadow={true} className="container lg:w-1/2 mx-auto border border-gray/50">
-          <CardBody className="grid grid-cols-1  md:gap-10">
-            <div className="w-full col-span-3 rounded-lg h-full py-8 p-5 md:p-16 bg-gray-900">
-              <Typography variant="h4" color="white" className="mb-2">
-                Contact Information
-              </Typography>
-              <Typography variant="lead" className="mx-auto mb-8 text-base !text-gray-500"></Typography>
-              <div className="flex gap-5">
-                <ChatBubbleOvalLeftIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  0896-9242-5060 (Whatsapp)
-                </Typography>
-              </div>
-              <div className="flex my-2 gap-5">
-                <EnvelopeIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  marcellinusaditya.official@gmail.com
-                </Typography>
-              </div>
-              <div className="flex my-2 gap-5">
-                <CodeBracketIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  <a href="https://github.com/MarcellinusAditya" target="_blank">
-                    MarcellinusAditya (Github)
-                  </a>
-                </Typography>
-              </div>
-              <div className="flex my-2 gap-5">
-                <PaperClipIcon className="h-6 w-6 text-white" />
-                <Typography variant="h6" color="white" className="mb-2">
-                  <a href="https://www.linkedin.com/in/marcellinus-aditya" target="_blank">
-                    Marcellinus Aditya (LinkedIn)
-                  </a>
-                </Typography>
-              </div>
-            </div>
-          </CardBody>
-        </Card>
+    <section id="contacts" className="scroll-mt-20 bg-surface">
+      <div className="container-page py-24 lg:py-32">
+        <div className="card mx-auto max-w-3xl px-6 py-14 text-center sm:px-14">
+          <p className="eyebrow mb-4">contact</p>
+          <h2 className="section-title">Have a project or a technical challenge in mind?</h2>
+          <p className="body-copy mx-auto mt-4 max-w-xl">
+            I&apos;m open to internship opportunities, freelance work, and interesting
+            technical problems. Let&apos;s talk about how I can help.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="mailto:marcellinusaditya.official@gmail.com" className="btn-primary">
+              Email Me
+            </a>
+            <a href="https://github.com/MarcellinusAditya" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/marcellinus-aditya" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              LinkedIn
+            </a>
+          </div>
+
+          <div className="mt-12 grid gap-x-10 gap-y-4 border-t border-line pt-8 text-left sm:grid-cols-2">
+            {CONTACT_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                className="group flex items-center justify-between gap-4"
+              >
+                <span className="font-mono text-xs uppercase tracking-[0.15em] text-ink-faint">
+                  {link.label}
+                </span>
+                <span className="text-sm text-ink-soft transition-colors group-hover:text-accent">
+                  {link.value}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

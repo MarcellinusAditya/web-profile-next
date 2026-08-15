@@ -1,91 +1,117 @@
-import React from "react";
-import { Navbar as MTNavbar, Collapse, Button, IconButton, Typography } from "@material-tailwind/react";
-import { RectangleStackIcon, UserCircleIcon, CommandLineIcon, Squares2X2Icon, XMarkIcon, Bars3Icon, PhoneIcon, CodeBracketIcon, WalletIcon, PencilIcon } from "@heroicons/react/24/solid";
+"use client";
 
-const NAV_MENU = [
-  {
-    name: "About",
-    icon: UserCircleIcon,
-    href: "#about",
-  },
-  {
-    name: "Skills",
-    icon: CodeBracketIcon,
-    href: "#skills",
-  },
-  {
-    name: "Projects",
-    icon: WalletIcon,
-    href: "#projects",
-  },
-  {
-    name: "Resume",
-    icon: PencilIcon,
-    href: "#resume",
-  },
-  {
-    name: "Contacts",
-    icon: PhoneIcon,
-    href: "#contacts",
-  },
+import React from "react";
+import Link from "next/link";
+
+const NAV_LINKS = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#resume" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contacts" },
 ];
 
-interface NavItemProps {
-  children: React.ReactNode;
-  href?: string;
-}
-
-function NavItem({ children, href }: NavItemProps) {
-  return (
-    <li>
-      <Typography as="a" href={href || "#"} target="_self" variant="paragraph" color="gray" className="flex items-center gap-2 font-medium text-gray-900">
-        {children}
-      </Typography>
-    </li>
-  );
-}
-
 export function Navbar() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => setOpen((cur) => !cur);
+  const [scrolled, setScrolled] = React.useState(false);
+  const [active, setActive] = React.useState("");
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
-    window.addEventListener("resize", () => window.innerWidth >= 960 && setOpen(false));
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      setMenuOpen(false);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  React.useEffect(() => {
+    const sections = NAV_LINKS.map((l) => document.querySelector(l.href)).filter(
+      (el): el is Element => Boolean(el)
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  const isActive = (href: string) => active === href;
+
   return (
-    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between">
-        <Typography color="blue-gray" className="text-lg font-bold">
-          Marcellinus
-        </Typography>
-        <ul className="ml-10 hidden items-center gap-8 lg:flex">
-          {NAV_MENU.map(({ name, icon: Icon, href }) => (
-            <NavItem key={name} href={href}>
-              <Icon className="h-5 w-5" />
-              {name}
-            </NavItem>
+    <header
+      className={`sticky top-0 z-50 border-b transition-colors duration-200 ${
+        scrolled ? "border-line bg-white/90 backdrop-blur" : "border-transparent bg-white"
+      }`}
+    >
+      <nav className="container-page flex h-16 items-center justify-between">
+        <Link
+          href="#about"
+          className="font-mono text-sm font-medium text-ink hover:text-accent"
+          onClick={() => setMenuOpen(false)}
+        >
+          <span className="text-accent">$</span> marcellinus.aditya
+        </Link>
+
+        <ul className="hidden items-center gap-8 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={`text-sm transition-colors ${
+                  isActive(link.href) ? "text-accent" : "text-ink-soft hover:text-ink"
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
         </ul>
 
-        <IconButton variant="text" color="gray" onClick={handleOpen} className="ml-auto inline-block lg:hidden">
-          {open ? <XMarkIcon strokeWidth={2} className="h-6 w-6" /> : <Bars3Icon strokeWidth={2} className="h-6 w-6" />}
-        </IconButton>
-      </div>
-      <Collapse open={open}>
-        <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
-          <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon, href }) => (
-              <NavItem key={name} href={href}>
-                <Icon className="h-5 w-5" />
-                {name}
-              </NavItem>
+        <button
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((cur) => !cur)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-ink lg:hidden"
+        >
+          {menuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="h-5 w-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="h-5 w-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          )}
+        </button>
+      </nav>
+
+      {menuOpen && (
+        <div className="border-t border-line bg-white lg:hidden">
+          <ul className="container-page flex flex-col py-3">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block py-2.5 text-sm ${
+                    isActive(link.href) ? "text-accent" : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
-      </Collapse>
-    </MTNavbar>
+      )}
+    </header>
   );
 }
 

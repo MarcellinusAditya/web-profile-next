@@ -1,70 +1,131 @@
 "use client";
 
 import { ProjectCard } from "@/components";
-import { Typography } from "@material-tailwind/react";
-import { getImagePrefix } from "../../utils/utils";
 
 const PROJECTS = [
   {
-    img: `${getImagePrefix()}image/portal.PNG`,
-    title: "Item Portal Web (DB Klik Intern 2025-2026)",
-    desc: "Portal website that manages information related to sales products, distributors, and ordering products from distributors. I participated in creating purchase list features, receive items, and several distribution features on e-commerce websites. (Laravel)",
+    img: "image/portal.PNG",
+    title: "Item Portal Web",
+    context: "DB Klik Internship · 2025–2026 · Laravel",
+    description:
+      "A portal system that manages sales products, distributors, and distributor ordering. I contributed to the purchase list, receive items, and distribution features of the e-commerce workflow.",
+    tech: ["Laravel", "PHP", "MySQL"],
+    highlights: [
+      "Built purchase list & receive items features",
+      "Contributed to distributor distribution features",
+      "Worked on an internal e-commerce portal used by the business",
+    ],
     href: "/Porto-Portal_DB_Klik.pdf",
+    hrefLabel: "Case study (PDF)",
   },
   {
-    img: `${getImagePrefix()}image/omnichannel.PNG`,
-    title: "Omnichannel Web (DB Klik Intern 2025-2026)",
-    desc: "An omnichannel website that manages many staff needs in carrying out work such as order management, stock management, goods receipt, and others. I participated in creating the receive item and serial number features. (Laravel)",
+    img: "image/omnichannel.PNG",
+    title: "Omnichannel Web",
+    context: "DB Klik Internship · 2025–2026 · Laravel",
+    description:
+      "An omnichannel platform covering daily staff workflows — order management, stock management, and goods receipt across the business.",
+    tech: ["Laravel", "PHP", "MySQL"],
+    highlights: [
+      "Implemented receive item & serial number features",
+      "Supported order and stock management workflows",
+      "Helped streamline internal operations tooling",
+    ],
     href: "",
+    hrefLabel: "",
   },
   {
-    img: `${getImagePrefix()}image/vitrostorage.PNG`,
-    title: "Storage App (2026)",
-    desc: "Aplikasi web storage yang dibuat dengan backend Laravel dan frontend React. Dengan fitur-fitur seperti CRUD product, warehouse, merchant, user with permissions, and transaction.",
+    img: "image/vitrostorage.PNG",
+    title: "Storage App",
+    context: "2026 · Laravel + React",
+    description:
+      "A web storage application with a Laravel backend and React frontend, featuring CRUD operations for products, warehouses, merchants, users with permissions, and transactions.",
+    tech: ["Laravel", "React", "MySQL"],
+    highlights: [
+      "Full-stack CRUD for products, warehouses & merchants",
+      "User management with role-based permissions",
+      "Transaction handling across the inventory flow",
+    ],
     href: "https://vitrostorage.vitroweb.my.id/",
+    hrefLabel: "Live demo",
   },
   {
-    img: `${getImagePrefix()}image/tickox.PNG`,
-    title: "Tickox (2025)",
-    desc: "Tourist ticket sales website using a mobile friendly approach. Built with Laravel and Filament as content management.",
+    img: "image/tickox.PNG",
+    title: "Tickox",
+    context: "2025 · Laravel + Filament",
+    description:
+      "A mobile-friendly tourist ticket sales website, built with Laravel and Filament used as the content management layer.",
+    tech: ["Laravel", "Filament", "MySQL"],
+    highlights: [
+      "Mobile-first ticket booking experience",
+      "Admin content management via Filament",
+    ],
     href: "https://tickox.vitroweb.my.id/",
+    hrefLabel: "Live demo",
   },
   {
-    img: `${getImagePrefix()}image/deteksi-diabetes.PNG`,
-    title: "Diabetes Detection (2025)",
-    desc: "Diabetes detection website created with Python backend using the KNN method which is optimized with a Genetic Algorithm. This project is a final exam project with the conclusion that it has succeeded in increasing accuracy by 5-8%.",
+    img: "image/deteksi-diabetes.PNG",
+    title: "Diabetes Detection",
+    context: "2025 · Python · Final Project",
+    description:
+      "A diabetes detection web app using a KNN classifier optimized with a Genetic Algorithm. The final project concluded with a 5–8% accuracy improvement.",
+    tech: ["Python", "KNN", "Genetic Algorithm"],
+    highlights: [
+      "Optimized KNN classifier with Genetic Algorithm",
+      "Improved detection accuracy by 5–8%",
+      "Built the supporting web application",
+    ],
     href: "https://deteksi-diabetes.vitroweb.my.id/",
+    hrefLabel: "Live demo",
   },
   {
-    img: `${getImagePrefix()}image/minisoccer.PNG`,
-    title: "Soccer Field Rent - Microservice API Integrated (2025)",
-    desc: "Soccer field rental website with specific locations and times. Built with a microservice backend using Golang and integrated on the frontend using React. It has also been integrated with the Midtrans payment gateway and deployed on GCS with Jenkins.",
+    img: "image/minisoccer.PNG",
+    title: "Soccer Field Rent — Microservice",
+    context: "2025 · Go + React · Microservice API",
+    description:
+      "A soccer field rental platform with location- and time-based booking. Microservice backend in Go, React frontend, Midtrans payment integration, deployed on GCS with Jenkins.",
+    tech: ["Go", "React", "Microservices", "Midtrans", "Jenkins"],
+    highlights: [
+      "Designed microservice backend architecture in Go",
+      "Integrated Midtrans payment gateway",
+      "Deployed on Google Cloud with Jenkins CI/CD",
+    ],
     href: "https://fe.vitroweb.site/",
+    hrefLabel: "Live demo",
   },
   {
-    img: `${getImagePrefix()}image/prima.PNG`,
-    title: "Prima Apotek (2023)",
-    desc: "A simple e-commerce website that sells medicines. Created with Laravel technology and integrated with Midtrans payment gateway.",
+    img: "image/prima.PNG",
+    title: "Prima Apotek",
+    context: "2023 · Laravel",
+    description:
+      "An e-commerce website for purchasing medicines, built with Laravel and integrated with the Midtrans payment gateway.",
+    tech: ["Laravel", "PHP", "Midtrans"],
+    highlights: [
+      "Built medicine product catalog & ordering flow",
+      "Integrated Midtrans payment gateway",
+    ],
     href: "http://primaapotek.vitroweb.my.id/",
+    hrefLabel: "Live demo",
   },
-  
 ];
 
 export function Projects() {
   return (
-    <section className="py-28 px-8" id="projects">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography variant="h2" color="blue-gray" className="mb-4">
-          My Projects
-        </Typography>
-        <Typography variant="lead" className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12">
-          Several projects that I have developed or participated in
-        </Typography>
-      </div>
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
-        {PROJECTS.map((props, idx) => (
-          <ProjectCard key={idx} {...props} />
-        ))}
+    <section id="projects" className="scroll-mt-20 border-b border-line bg-white">
+      <div className="container-page py-24 lg:py-32">
+        <div className="max-w-2xl">
+          <p className="eyebrow mb-4">selected projects</p>
+          <h2 className="section-title">Things I&apos;ve built and contributed to.</h2>
+          <p className="body-copy mt-4">
+            A mix of internship work, university projects, and personal builds —
+            each one solving a concrete problem.
+          </p>
+        </div>
+
+        <div className="mt-16 space-y-20 lg:space-y-24">
+          {PROJECTS.map((project, idx) => (
+            <ProjectCard key={project.title} index={idx} {...project} />
+          ))}
+        </div>
       </div>
     </section>
   );
