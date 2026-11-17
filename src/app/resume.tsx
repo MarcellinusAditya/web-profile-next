@@ -1,5 +1,7 @@
 "use client";
 
+import { getImagePrefix } from "../../utils/utils";
+
 const EXPERIENCE = [
   {
     period: "2025 – 2026",
@@ -50,7 +52,7 @@ export function Resume() {
             <p className="eyebrow mb-4">experience & education</p>
             <h2 className="section-title">Where I&apos;ve worked and learned.</h2>
           </div>
-          <a href="/Marcellinus Aditya - CV.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary w-fit shrink-0">
+          <a href={`${getImagePrefix()}Marcellinus Aditya - CV.pdf`} target="_blank" rel="noopener noreferrer" className="btn-secondary w-fit shrink-0">
             Download CV (PDF)
           </a>
         </div>
