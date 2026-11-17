@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Layout } from "@/components";
+import { getImagePrefix } from "../../utils/utils";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script defer data-site="marcellinus.vitroweb.site" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-        <link rel="shortcut icon" href="/favicon-32x32.png" type="image/png" />
+        <link rel="shortcut icon" href={`${getImagePrefix()}favicon-32x32.png`} type="image/png" />
       </head>
       <body>
         <Layout>{children}</Layout>
