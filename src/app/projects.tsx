@@ -49,6 +49,21 @@ const PROJECTS = [
     hrefLabel: "Live demo",
   },
   {
+    img: "image/myvitae.PNG",
+    title: "MyVitae — AI CV & Cover Letter Builder",
+    context: "2026 · Laravel + React (Inertia)",
+    description:
+      "A career-profile and job-application workspace: keep one verified career profile, paste a job description, then generate a CV and cover letter tailored to that role and export them as PDF or DOCX.",
+    tech: ["Laravel", "React", "Inertia", "MySQL", "OpenAI API"],
+    highlights: [
+      "Single verified career profile as the source for every document",
+      "Tailored CV & cover letter generated per job posting",
+      "Editable sections with PDF and DOCX export",
+    ],
+    href: "https://myvitae.vitroweb.online",
+    hrefLabel: "Live demo",
+  },
+  {
     img: "image/tickox.PNG",
     title: "Tickox",
     context: "2025 · Laravel + Filament",
