@@ -12,7 +12,7 @@
     "lint": "next lint",
     "predeploy": "npm run build:gh",
     "build:gh": "NEXT_PUBLIC_BASE_PATH=/web-profile-next next build",
-    "deploy": "touch out/.nojekyll && gh-pages -d out"
+    "deploy": "gh-pages -d out --nojekyll"
   },
   "dependencies": {
     "@heroicons/react": "2.0.18",
